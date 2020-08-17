@@ -266,12 +266,12 @@
             });
 
             $('#time-manager').on('click', function () {
-                $('#add-invoice-line-modal .modal-content').load('/add-invoice-lines/{{$tasks->external_id}}' + '/task');
+                $('#add-invoice-line-modal .modal-content').load('{{route('invoiceLine.modal.add',['external_id'=>$tasks->external_id, 'type'=>'task'])}}');
                 $('#add-invoice-line-modal').modal('show');
             });
             @if(Entrust::can('task-upload-files') && $filesystem_integration)
             $('#add-files').on('click', function () {
-                $('#add-files-modal .modal-content').load('/add-documents/{{$tasks->external_id}}' + '/task');
+                $('#add-files-modal .modal-content').load('{{route('document.modal.add',['external_id'=>$tasks->external_id, 'type'=>'task'])}}');
                 $('#add-files-modal').modal('show');
             });
             @endif
